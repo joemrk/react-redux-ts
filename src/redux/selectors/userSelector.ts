@@ -36,3 +36,6 @@ export const getIsFetching = (state: AppStateType) => {
 export const getFollowProcess = (state: AppStateType) => {
    return state.usersData.followProcess
 }
+export const getUsersFilter = (state: AppStateType) => {
+   return state.usersData.filters
+}

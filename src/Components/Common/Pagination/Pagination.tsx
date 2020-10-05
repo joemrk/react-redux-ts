@@ -1,18 +1,20 @@
 import React from 'react'
 import './pagination.css'
+import { UsersFilterType } from '../../../redux/usersReducer';
 
 type Props = {
     pageSize: number
     currentPage: number
     totalUsers: number
-    requestUsers: (page: number, pageSize: number) => void
+    filter: UsersFilterType
+    requestUsers: (page: number, pageSize: number, filters: UsersFilterType) => void
 }
 
-export const Pagination: React.FC<Props> = React.memo(({ pageSize, currentPage, totalUsers, requestUsers }) => {
+export const Pagination: React.FC<Props> = React.memo(({ pageSize, currentPage, totalUsers,filter, requestUsers }) => {
 
     let pagesCount = Math.ceil(totalUsers / pageSize)
 
-    let chunkPageSize = 5
+    let chunkPageSize = 15
     let floorChunkPageSize = Math.floor(chunkPageSize / 2)
 
     let leftFromCurrent = currentPage - floorChunkPageSize
@@ -26,7 +28,7 @@ export const Pagination: React.FC<Props> = React.memo(({ pageSize, currentPage, 
         pages.push(i)
 
     }
-    pages = pages.map(p => <span key={p} onClick={() => { requestUsers(p, pageSize) }}
+    pages = pages.map(p => <span key={p} onClick={() => { requestUsers(p, pageSize, filter) }}
         className={(currentPage === p) ? 'active-page pagination-page-item' : ' pagination-page-item'}>{p}</span>)
     return (
         <div className="pagination-wrap">

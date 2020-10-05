@@ -14,7 +14,9 @@ body {
     height: 100%;
     background-color: #3E3D3B;
 }
-
+option {
+    color: #000
+}
 .container {
     padding: 20px;
     max-width: 900px;

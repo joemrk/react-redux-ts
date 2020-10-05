@@ -1,8 +1,6 @@
-
-import { ThunkAction } from 'redux-thunk';
 import { ApiResponseType, StatusCode } from '../api/api';
 import { usersApi, UserType } from '../api/usersApi';
-import { AppStateType, BaseThunkType, ActionObjectType } from './reduxStore';
+import { BaseThunkType, ActionObjectType } from './reduxStore';
 
 
 export const actions = {
@@ -11,20 +9,22 @@ export const actions = {
     changeCurrentPage: (data: number) => ({ type: 'users/CHANGE_CURRENT_PAGE', data } as const),
     setTotalUsers: (data: number) => ({ type: 'users/SET_TOTAL_USERS_COUNT', data } as const),
     toggleFetching: (data: boolean) => ({ type: 'users/TOGGLE_FETCHING', data } as const),
-    toggleFollowProcessAC: (value: boolean, userId: number) => ({ type: 'users/FOLLOW_PROCESS', data: { value, userId } } as const)
+    toggleFollowProcessAC: (value: boolean, userId: number) => ({ type: 'users/FOLLOW_PROCESS', data: { value, userId } } as const),
+    setTerm: (filter: UsersFilterType) => ({ type: 'users/SET_FILTER', payload:filter } as const)
 }
 
 type ActionsType = ReturnType<ActionObjectType<typeof actions>>
 type ThunkType = BaseThunkType<ActionsType>
 
-export const requestUsers = (pageIndex: number = 1, pageSize: number):ThunkType => async dispatch => {
+export const requestUsers = (pageIndex: number = 1, pageSize: number, filter: UsersFilterType):ThunkType => async dispatch => {
     dispatch(actions.toggleFetching(true))
     dispatch(actions.changeCurrentPage(pageIndex))
-    const data = await usersApi.GetUsers(pageIndex, pageSize)
+    dispatch(actions.setTerm(filter))
+    const data = await usersApi.GetUsers(pageIndex, pageSize, filter)
     if (data !== undefined) {
         dispatch(actions.toggleFetching(false))
         dispatch(actions.getUsersData(data.items))
-        dispatch(actions.setTotalUsers(500))    
+        dispatch(actions.setTotalUsers(data.totalCount))    
     }
 }
 
@@ -46,14 +46,24 @@ export type UsersDataType = {
     pageSize: number
     isFetching: boolean,
     followProcess: number[]
+    filters: {
+        term: string
+        friend: null | boolean
+    }
 }
+
+export type UsersFilterType = typeof initState.filters
 let initState: UsersDataType = {
     users: [],
     currentPage: 1,
     totalUsers: 0,
     pageSize: 10,
     isFetching: false,
-    followProcess: []
+    followProcess: [],
+    filters : {
+        term: '',
+        friend: null
+    }
 }
 
 let usersReducer = (state = initState, action: ActionsType): UsersDataType => {
@@ -70,21 +80,13 @@ let usersReducer = (state = initState, action: ActionsType): UsersDataType => {
             }
         }
         case 'users/GET_USERS_DATA':
-            return {
-                ...state, users: action.data
-            }
+            return {...state, users: action.data}
         case 'users/CHANGE_CURRENT_PAGE':
-            return {
-                ...state, currentPage: action.data
-            }
+            return {...state, currentPage: action.data}
         case 'users/SET_TOTAL_USERS_COUNT':
-            return {
-                ...state, totalUsers: action.data
-            }
+            return { ...state, totalUsers: action.data}
         case 'users/TOGGLE_FETCHING':
-            return {
-                ...state, isFetching: action.data
-            }
+            return {...state, isFetching: action.data}
         case 'users/FOLLOW_PROCESS':
             return {
                 ...state,
@@ -92,6 +94,8 @@ let usersReducer = (state = initState, action: ActionsType): UsersDataType => {
                     ? [...state.followProcess, action.data.userId]
                     : state.followProcess.filter(id => id !== action.data.userId)
             }
+            case "users/SET_FILTER":
+                return {...state, filters: action.payload}
         default:
             return state
     }

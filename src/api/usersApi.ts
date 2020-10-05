@@ -1,5 +1,6 @@
 import { ai, ApiResponseType } from "./api";
 import { ProfilePhotosType } from '../types/types';
+import { UsersFilterType } from "../redux/usersReducer";
 
 
 export type UsersType = {
@@ -15,9 +16,9 @@ export type UserType = {
     followed: boolean
 }
 export const usersApi = {
-    GetUsers(currentPage = 1, pageSize = 5) {
+    GetUsers(currentPage = 1, pageSize = 5, filter: UsersFilterType = {friend: null, term: ''}) {
         try {
-            return ai.get<UsersType>(`users?page=${currentPage}&count=${pageSize}`).then(res => res.data)
+            return ai.get<UsersType>(`users?page=${currentPage}&count=${pageSize}${filter.term === null ? '' : '&term=' + filter.term}${filter.friend === null ? '' : '&friend=' + filter.friend}`).then(res => res.data)
         } catch (error) {
             console.log(error);
         }
