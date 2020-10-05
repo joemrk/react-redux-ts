@@ -1,0 +1,24 @@
+.users-user-block {
+    padding: 20px;
+    display: flex;
+}
+
+button {
+    color: #000
+}
+
+.pagenation-wrap{
+    padding: 15px 0;
+}
+.active-page{
+    color: #e7294f;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.one-user-wrap{
+    padding: 15px;
+}
+.pages-list span{
+    padding: 0 5px;
+}

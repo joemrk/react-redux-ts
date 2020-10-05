@@ -1,0 +1,106 @@
+.profile-page {}
+
+.profile {
+    display: flex;
+}
+
+.profile-avatar {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-avatar img {
+    max-width: 200px;
+    border: 10px solid #fff;
+    border-bottom: 30px solid #fff;
+}
+
+.profile-info,
+.update-profile-form {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+}
+.update-profile-info{
+    width: 100%;
+    padding-bottom: 10px;
+
+}
+.profile-info-right,
+.profile-info-left{
+    width: 50%;
+}
+.profile-info-left{
+    display: flex;
+    flex-direction: column;
+}
+.profile-info-left div{
+    margin-bottom: 5px;
+}
+.profile-info-about {
+    margin-top: 20px;
+}
+
+.profile-info-about div {
+    padding-bottom: 10px;
+}
+
+.profile-info-about p,
+.profile-info-boi p {
+    padding-left: 20px;
+}
+
+.profile-info-about span {
+    font-weight: bold;
+}
+.profile-status{
+    padding: 10px;
+}
+.change-status-input{
+    border: none;
+    padding: 5px;
+    background-color: #3E3D3B;
+
+}
+
+.profile-contact-link{
+    font-weight: 100;
+}
+.update-profile-bnt{
+    display: flex;
+    justify-self: end;
+    align-self: baseline;
+}
+
+.update-profile-bnt{
+    font-weight: bold;
+    width: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+.update-profile-bnt:hover{
+    color: #e7294f;
+}
+.update-profile-contact-item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.profile-about-looking-job textarea{
+max-width: 80%;
+min-width: 80%;
+min-height: 100px;
+}
+.profile-about-looking-job input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+}
+#saveProfileChanges{
+    padding: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+#saveProfileChanges:hover{
+    color: #e7294f;
+}

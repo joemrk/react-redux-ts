@@ -1,0 +1,14 @@
+.login-form-wrap {
+     padding: 10px;
+}
+
+.form-group .form-submit,
+.form-group .remember,
+.form-group .errors{
+     margin: 10px 0;
+     padding: 10px;
+}
+
+.form-group .errors {
+     color: rgb(219, 58, 58)
+}

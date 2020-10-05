@@ -1,0 +1,31 @@
+
+.navbar,
+.navbar-links,
+.nav-left{
+    display: flex;
+}
+.navbar,
+.navbar-links,
+.nav-left{
+    align-items: center;
+
+}
+.navbar {
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navbar-links {
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-links li {
+    padding: 5px;
+    margin: 0 10px;
+}
+
+.active-nav {
+    color: #e7294f;
+}
+

@@ -1,0 +1,75 @@
+.page-messages {
+    display: flex;
+}
+
+.dialogs-list {
+    min-width: 300px;
+}
+
+.dialog-avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dialog-messages {
+    width: 100%;
+    background-color: #494946;
+}
+
+.dialogs-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: normal;
+    padding: 5px;
+    border-bottom: #494946 1px solid;
+    transition: .2s;
+}
+
+.dialogs-item:hover,
+.dialogs-item .active {
+    background-color: #494946;
+}
+
+.dialog-tittle {
+    padding-left: 10px;
+}
+
+.dialog-last-mess {
+    padding-left: 10px;
+    color: #B6B6B9;
+}
+
+.dialog-chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.messages-lis {
+    height: 100%;
+}
+
+.message-write-area {
+    height: 200px;
+}
+
+.message-cloud {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #555;
+}
+
+.active-dialog .dialog-item {
+    background-color: #494946;
+}
+
+
+/* media */

@@ -1,0 +1,7 @@
+.pagination-page-item{
+  cursor: pointer;
+  transition: .3s;
+}
+.pagination-page-item:hover{
+  color:  #e7294f
+}

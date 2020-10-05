@@ -1,0 +1,327 @@
+{
+    "results": [
+      {
+        "gender": "male",
+        "name": {
+          "title": "Mr",
+          "first": "Jose",
+          "last": "Simpson"
+        },
+        "location": {
+          "city": "San Mateo",
+          "state": "Idaho",
+          "country": "United States",
+          "postcode": 46314,
+          "coordinates": {
+            "latitude": "81.1249",
+            "longitude": "-34.8555"
+          }
+        },
+        "email": "jose.simpson@example.com",
+        "dob": {
+          "date": "1945-05-26T16:52:58.864Z",
+          "age": 75
+        },
+        "id": "845179",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/73.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/73.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/73.jpg"
+        },
+        "nat": "US",
+        "followStatus": false
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "Miss",
+          "first": "Maëly",
+          "last": "Renaud"
+        },
+        "location": {
+          "city": "Colombes",
+          "state": "Haute-Loire",
+          "country": "France",
+          "postcode": 13742,
+          "coordinates": {
+            "latitude": "25.8409",
+            "longitude": "-104.1839"
+          }
+        },
+        "email": "maely.renaud@example.com",
+        "dob": {
+          "date": "1953-10-31T08:38:00.378Z",
+          "age": 67
+        },
+        "id": "456873",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/56.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/56.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/56.jpg"
+        },
+        "nat": "FR",
+        "followStatus": false
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "Mr",
+          "first": "Flenn",
+          "last": "Brooks"
+        },
+        "location": {
+          "city": "Newcastle West",
+          "state": "Fingal",
+          "country": "Ireland",
+          "postcode": 98315,
+          "coordinates": {
+            "latitude": "66.8843",
+            "longitude": "29.4056"
+          }
+        },
+        "email": "flenn.brooks@example.com",
+        "dob": {
+          "date": "1951-04-14T17:09:25.009Z",
+          "age": 69
+        },
+        "id": "759426",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/38.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/38.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/38.jpg"
+        },
+        "nat": "IE",
+        "followStatus": false
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "Monsieur",
+          "first": "Damien",
+          "last": "Rousseau"
+        },
+        "location": {
+          "city": "Cama",
+          "state": "Solothurn",
+          "country": "Switzerland",
+          "postcode": 2212,
+          "coordinates": {
+            "latitude": "-26.5057",
+            "longitude": "92.7333"
+          }
+        },
+        "email": "damien.rousseau@example.com",
+        "dob": {
+          "date": "1950-09-03T08:01:07.313Z",
+          "age": 70
+        },
+        "id": "7495164",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/84.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/84.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/84.jpg"
+        },
+        "nat": "CH",
+        "followStatus": false
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "Mrs",
+          "first": "Ceylan",
+          "last": "Çatalbaş"
+        },
+        "location": {
+          "city": "Elazığ",
+          "state": "Edirne",
+          "country": "Turkey",
+          "postcode": 19744,
+          "coordinates": {
+            "latitude": "12.9962",
+            "longitude": "152.4286"
+          }
+        },
+        "email": "ceylan.catalbas@example.com",
+        "dob": {
+          "date": "1980-02-05T00:18:38.944Z",
+          "age": 40
+        },
+        "id": "846513",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/28.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/28.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/28.jpg"
+        },
+        "nat": "TR",
+        "followStatus": false
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "Mr",
+          "first": "Matthew",
+          "last": "Gagnon"
+        },
+        "location": {
+          "city": "Dorchester",
+          "state": "British Columbia",
+          "country": "Canada",
+          "postcode": "Q5M 2I3",
+          "coordinates": {
+            "latitude": "-23.7960",
+            "longitude": "86.1975"
+          }
+        },
+        "email": "matthew.gagnon@example.com",
+        "dob": {
+          "date": "1970-04-29T00:16:11.931Z",
+          "age": 50
+        },
+        "id": "468513",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/57.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/57.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/57.jpg"
+        },
+        "nat": "CA",
+        "followStatus": false
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "Mademoiselle",
+          "first": "Marina",
+          "last": "Lemoine"
+        },
+        "location": {
+          "city": "Oberdiessbach",
+          "state": "Obwalden",
+          "country": "Switzerland",
+          "postcode": 5420,
+          "coordinates": {
+            "latitude": "18.0294",
+            "longitude": "112.1873"
+          },
+          "timezone": {
+            "offset": "+2:00",
+            "description": "Kaliningrad, South Africa"
+          }
+        },
+        "email": "marina.lemoine@example.com",
+        "dob": {
+          "date": "1992-04-09T02:07:05.606Z",
+          "age": 28
+        },
+        "id": "851674",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/25.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/25.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/25.jpg"
+        },
+        "nat": "CH",
+        "followStatus": false
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "Mr",
+          "first": "Sivar",
+          "last": "Schalkwijk"
+        },
+        "location": {
+          "city": "Zeijerveen",
+          "state": "Friesland",
+          "country": "Netherlands",
+          "postcode": 93658,
+          "coordinates": {
+            "latitude": "-36.4810",
+            "longitude": "16.8070"
+          },
+          "timezone": {
+            "offset": "+6:00",
+            "description": "Almaty, Dhaka, Colombo"
+          }
+        },
+        "email": "sivar.schalkwijk@example.com",
+        "dob": {
+          "date": "1984-06-17T22:18:46.104Z",
+          "age": 36
+        },
+        "id": "684138",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/90.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/90.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/90.jpg"
+        },
+        "nat": "NL",
+        "followStatus": false
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "Mrs",
+          "first": "Laila",
+          "last": "Lindenau"
+        },
+        "location": {
+          "city": "Stadtlohn",
+          "state": "Hamburg",
+          "country": "Germany",
+          "postcode": 54242,
+          "coordinates": {
+            "latitude": "77.9653",
+            "longitude": "-3.9985"
+          },
+          "timezone": {
+            "offset": "+1:00",
+            "description": "Brussels, Copenhagen, Madrid, Paris"
+          }
+        },
+        "email": "laila.lindenau@example.com",
+        "dob": {
+          "date": "1949-08-02T07:32:59.921Z",
+          "age": 71
+        },
+        "id": "513584",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/28.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/28.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/28.jpg"
+        },
+        "nat": "DE",
+        "followStatus": false
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "Mr",
+          "first": "Eliano",
+          "last": "de Souza"
+        },
+        "location": {
+          "city": "Araruama",
+          "state": "Acre",
+          "country": "Brazil",
+          "postcode": 50706,
+          "coordinates": {
+            "latitude": "26.9790",
+            "longitude": "32.7848"
+          }
+        },
+        "email": "eliano.desouza@example.com",
+        "dob": {
+          "date": "1960-09-23T05:20:34.481Z",
+          "age": 60
+        },
+        "id": "864168",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/61.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/61.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/61.jpg"
+        },
+        "nat": "BR",
+        "followStatus": false
+      }
+    ],
+    "total": 10
+  }
