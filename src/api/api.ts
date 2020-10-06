@@ -22,6 +22,14 @@ export enum StatusCode {
 
 
 
+  export const buildUrlQueryFromObj = (obj: any): string =>{
+    let queries = '';
+    (Object.keys(obj) as Array<keyof typeof obj>).forEach(key => {
+        queries += obj[key] !== null ? `&${key.toString()}=${obj[key]}` : ''
+    })
+    return queries
+}
+
 
 
 
