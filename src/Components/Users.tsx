@@ -3,14 +3,21 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 import '../styles/users.css';
 import { ChangeFollowStatus, requestUsers, UsersFilterType } from '../redux/usersReducer';
 import Preloader from './Common/Preloader/Preloader';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink, useHistory } from 'react-router-dom';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../hoc/withAuthRedirect'
 import { getUsersSelector, getPageSize, getTotalUsers, getCurrentPage, getIsFetching, getFollowProcess, getUsersFilter } from '../redux/selectors/userSelector'
 import { Pagination } from './Common/Pagination/Pagination';
 import { UserType } from '../api/usersApi';
 import { Formik, Field } from 'formik';
+import * as queryString from 'querystring'
 
+
+type QueryParamsType = {
+    term?: string
+    friend?: string
+    page?: string
+}
 let Users: React.FC = React.memo((props) => {
 
     let usersData = useSelector(getUsersSelector)
@@ -19,13 +26,44 @@ let Users: React.FC = React.memo((props) => {
     let currentPage = useSelector(getCurrentPage)
     let isFetching = useSelector(getIsFetching)
     let usersFilter = useSelector(getUsersFilter)
-    
+
     let dispatch = useDispatch()
 
+    let history = useHistory()
+
     useEffect(() => {
-        dispatch(requestUsers(currentPage, pageSize, usersFilter))
+        const parsedSearch = queryString.parse(history.location.search.substring(1))
+
+        let actualPage = currentPage
+        let actualFilter = usersFilter
+
+        if (!!parsedSearch.page) actualPage = Number(parsedSearch.page)
+        if (!!parsedSearch.term) actualFilter.term = String(parsedSearch.term)
+        // actualFilter.friend = parsedSearch.friend === 'null' ? null : parsedSearch.friend === 'true' ? true : false
+        switch (parsedSearch.friend) {
+            case 'null': actualFilter = {...actualFilter, friend: null}; break;
+            case 'true':actualFilter = {...actualFilter, friend: true}; break;
+            case 'false':actualFilter = {...actualFilter, friend: false}; break;
+        }
+
+        dispatch(requestUsers(actualPage, pageSize, actualFilter))
     }, [])
-    let onPageChanged = (pageNumber:number) => {
+
+    useEffect(() => {
+        let queries: QueryParamsType = {}
+
+        if (!!usersFilter.term) queries.term = String(usersFilter.term)
+        if (usersFilter.friend !== null) queries.friend = String(usersFilter.friend)
+        if (currentPage !== 1) queries.page = String(currentPage)
+
+        history.push({
+            pathname: '/users',
+            // search: `?term=${usersFilter.term}&friend=${usersFilter.friend}&page=${currentPage}`
+            search: queryString.stringify(queries)
+        })
+    }, [usersFilter, currentPage])
+
+    let onPageChanged = (pageNumber: number) => {
         dispatch(requestUsers(pageNumber, pageSize, usersFilter))
     }
     let setFilter = (filter: UsersFilterType) => {
@@ -56,9 +94,10 @@ let Users: React.FC = React.memo((props) => {
 type DispatchFilterType = {
     submitHandler: (filter: UsersFilterType) => void
 }
+type FilterFriendType = 'null' | 'true' | 'false'
 type UsersFilterFriendFormType = {
-    term: string 
-    friend: 'null'| 'true' | 'false'
+    term: string
+    friend: FilterFriendType
 }
 let FindUsersForm: React.FC<DispatchFilterType> = React.memo(({ submitHandler }) => {
     let formSubmit = (values: UsersFilterFriendFormType, { setSubmitting }: { setSubmitting: (isSubmit: boolean) => void }) => {
@@ -73,9 +112,12 @@ let FindUsersForm: React.FC<DispatchFilterType> = React.memo(({ submitHandler })
         const errors = {}
         return errors
     }
+    let usersFilter = useSelector(getUsersFilter)
     return (
         <div>
-            <Formik initialValues={{ term: '', friend: 'null' }}
+            <Formik
+                enableReinitialize
+                initialValues={{ term: usersFilter.term, friend: String(usersFilter.friend) as FilterFriendType }}
                 onSubmit={formSubmit}
                 validate={formValidate} >
                 {({ values, errors, touched,
@@ -92,7 +134,7 @@ let FindUsersForm: React.FC<DispatchFilterType> = React.memo(({ submitHandler })
                                 style={{ backgroundColor: '#fff', color: '#000' }}
                             />
                             <Field name="friend" as="select"
-                            style={{ backgroundColor: '#fff', color: '#000'}}>
+                                style={{ backgroundColor: '#fff', color: '#000' }}>
                                 <option value="null">All</option>
                                 <option value="true">Followed</option>
                                 <option value="false">Unfollowed</option>
@@ -108,7 +150,7 @@ let FindUsersForm: React.FC<DispatchFilterType> = React.memo(({ submitHandler })
 type UserItemType = {
     user: UserType
 }
-let UserItem: React.FC<UserItemType> =  React.memo(({ user }) => {
+let UserItem: React.FC<UserItemType> = React.memo(({ user }) => {
     let followProcess = useSelector(getFollowProcess)
     let dispatch = useDispatch()
 
